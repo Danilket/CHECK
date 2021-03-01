@@ -60,7 +60,9 @@
 	"dependencies": {
 		"@babel/polyfill": "^7.12.1",
 		"@fancyapps/fancybox": "^3.5.7",
+		"inputmask": "^5.0.5",
 		"jquery": "^3.5.1",
+		"jquery-validation": "^1.19.3",
 		"normalize.css": "^8.0.1",
 		"slick-slider": "^1.8.2"
 	}

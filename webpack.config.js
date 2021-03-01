@@ -107,7 +107,8 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.json'],
 		alias: {
-			'@': path.resolve(__dirname, 'src')
+			'@': path.resolve(__dirname, 'src'),
+			'inputmask': path.resolve(__dirname, './node_modules/inputmask/dist/jquery.inputmask'),
 		},
 		// fallback: {
 		// 	"path": require.resolve("path-browserify"),

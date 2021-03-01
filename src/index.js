@@ -21,12 +21,21 @@ import mail from '@/assets/images/mail.svg'
 import tel from '@/assets/images/tel.svg'
 import heart from '@/assets/images/heart.svg'
 import world from '@/assets/images/world.svg'
+import checkBox from '@/assets/images/check-box.svg'
 
 import './js/babel'
 import './js/modalFancybox'
+
+import Inputmask from "inputmask";
+import 'jquery-validation'
+
 import 'slick-slider'
 
 
+
+$('.info__language, .info__language--mobile').on('click', function () {
+	$('.change-language').toggleClass('change-language--active')
+})
 
 function burgerMenu(selector) {
 	let menu = $(selector);
@@ -63,13 +72,65 @@ function burgerMenu(selector) {
 
 burgerMenu('.menu-mobile')
 
-// $(window).onload(function () {
-// 	let width = $(window).width()
-// 	let list = $('.list');
-// 	if (width < 1201) {
-// 		console.log(width);
-// 		list.addClass('mobile-list')
-// 	} else {
-// 		list.removeClass('mobile-list')
-// 	}
-// })
+$('.buttons__call2').on('click', function () {
+	$.fancybox.close();
+});
+
+$('[data-fancybox]').fancybox({
+	autoFocus: false,
+	// backFocus: false,
+	// trapFocus: false,
+});
+
+
+$("#number").inputmask({
+	mask: '+7 (999) 999-99-99',
+	showMaskOnHover: false,
+});
+
+
+
+// let element = $('.callback__form')
+
+$('.callback__form').validate({
+	// element: $('.callback__form'),
+	groups: {
+		username: "tel name checkbox"
+	},
+	rules: {
+		tel: {
+			required: true
+		},
+		name: {
+			required: true,
+			minlength: 2
+		},
+		checkbox: {
+			required: true
+		}
+	},
+	messages: {
+		tel: {
+			required: 'Пожалуйста заполните все поля, отмеченные звездочкой'
+		},
+		name: {
+			required: 'Пожалуйста заполните все поля, отмеченные звездочкой',
+			minlength: 'Длина должна быть больше 2 символов'
+		},
+		checkbox: {
+			required: 'Пожалуйста заполните все поля, отмеченные звездочкой'
+		}
+	},
+	errorPlacement: function (error, element) {
+		if (element.attr("name") == "tel" || element.attr("name") == "name" || element.attr("name") == "checkbox") {
+			error.insertAfter(".callback__data");
+		} else {
+			error.insertAfter(element);
+		}
+		console.log(error);
+	},
+	submitHandler: function () {
+		$.fancybox.close();
+		$.fancybox.open($('#modal2'));
+	}
+})

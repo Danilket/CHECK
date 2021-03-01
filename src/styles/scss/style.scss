@@ -67,6 +67,40 @@
 	height: 23px;
 }
 
+.change-language {
+	position: absolute;
+	padding: 15px 26px;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@extend %btn-shadow;
+	text-transform: none;
+	margin-top: 10px;
+	z-index: 5;
+	visibility: hidden;
+	opacity: 0;
+	transition: $hover-delay;
+
+	&__item {
+		line-height: 35px;
+		cursor: pointer;
+		a {
+			display: block;
+		}
+		&:hover {
+			color: $accent;
+			transition: $hover-delay;
+		}
+	}
+}
+
+.change-language--active {
+	visibility: visible;
+	opacity: 1;
+	transition: $hover-delay;
+}
+
 .buttons__entry {
 	span {
 		color: $menu-color;
@@ -199,59 +233,6 @@
 	}
 }
 
-@media (min-width: 768px) {
-	.decorates__wave-right {
-		display: inline;
-	}
-	.header {
-		&__buttons {
-			display: flex;
-			padding-top: 28px;
-		}
-		&__title {
-			font-size: 14px;
-			line-height: 21px;
-		}
-	}
-	.icon-logo {
-		max-width: 36px;
-		height: 112px;
-	}
-	.buttons__entry {
-		width: 32px;
-		height: 32px;
-		span {
-			display: none;
-		}
-	}
-	.buttons__cart {
-		margin-left: 16px;
-		width: 69px;
-		height: 32px;
-		margin-top: 0;
-		.btn__circle {
-			width: 19px;
-			height: 19px;
-			font-size: 10px;
-		}
-	}
-	.buttons__call {
-		display: block;
-	}
-	.menu__title {
-		font-size: 12px;
-	}
-	.header__bottom {
-		height: 43px;
-		&-inner {
-			height: 43px;
-		}
-	}
-	.buttons__bottom {
-		display: flex;
-	}
-}
-
 .info-items {
 	display: none;
 }
@@ -312,6 +293,9 @@
 			}
 		}
 	}
+	.change-language {
+		margin-top: -5px;
+	}
 	&.active {
 		right: 0;
 	}
@@ -337,6 +321,290 @@
 	&:hover {
 		fill: $accent;
 		transition: $hover-delay;
+	}
+}
+
+// MODAL
+.modal {
+	display: none;
+	// margin-left: 330px;
+	// height: 1200px;
+}
+
+.callback {
+	// padding: 0 44px;
+	max-width: 688px;
+	width: 100%;
+	&__title {
+		font-size: 30px;
+		font-family: "Century Gothic-Bold";
+		letter-spacing: 3px;
+		margin: 0 0 35px 0;
+	}
+	&__request {
+		font-size: 18px;
+		margin: 0 0 30px 0;
+		text-transform: none;
+		font-weight: 400;
+		line-height: 27px;
+	}
+	&__data {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	&__tel,
+	&__name {
+		display: flex;
+		flex-direction: column;
+		max-width: 285px;
+		width: 100%;
+		justify-content: center;
+		// @extend %btn-shadow;
+		cursor: pointer;
+		position: relative;
+	}
+	&__name-title {
+		position: absolute;
+		font-size: 10px;
+		color: $menu-color;
+		text-transform: none;
+		top: 15px;
+		left: 25px;
+		cursor: pointer;
+	}
+	&__content {
+		border: none;
+		cursor: pointer;
+		padding: 30px 25px 20px;
+		border: 1px solid #fff;
+		transition: $hover-delay;
+		color: $accent;
+		font-size: 21px;
+		@extend %btn-shadow;
+
+		&::placeholder {
+			color: #000;
+			transition: $hover-delay;
+		}
+		&:hover {
+			&::placeholder {
+				color: $accent;
+			}
+		}
+		&:focus {
+			border: 1px solid $accent;
+			outline: none;
+			&::placeholder {
+				color: $accent;
+			}
+		}
+	}
+	&__confidencial {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		margin-left: -20px;
+		top: 32px;
+		left: 33px;
+	}
+	&__confidencial-label {
+		position: relative;
+		cursor: pointer;
+		padding-left: 45px;
+		display: block;
+		font-size: 12px;
+		text-transform: none;
+		color: $menu-color;
+		max-width: 480px;
+		line-height: 18px;
+		margin-bottom: 25px;
+	}
+	&__check {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 28px;
+		height: 28px;
+		background-color: #fff;
+		@extend %btn-shadow;
+		margin-left: -45px;
+		top: 3px;
+	}
+
+	&__button {
+		display: block;
+		margin: 0 auto;
+		background-color: $accent;
+		color: #fff;
+		font-family: "Century Gothic-Bold";
+		border-radius: 0;
+		font-size: 24px;
+		max-width: 450px;
+		width: 100%;
+		border: none;
+		height: 75px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: $hover-delay;
+		@extend %btn-shadow;
+		&:hover {
+			background-color: #fff;
+			color: $accent;
+		}
+	}
+}
+
+.callback__confidencial:checked + .callback__check {
+	.callback__svg {
+		display: block;
+	}
+}
+.callback__confidencial + .callback__check {
+	.callback__svg {
+		display: none;
+	}
+}
+.callback__confidencial.error + .callback__check {
+	border: 1px solid red;
+}
+
+@media (max-width: 768px) {
+	.callback {
+		padding: 20px;
+		&__title {
+			font-size: 24px;
+			margin: 0 30 25px 0;
+			max-width: 291px;
+		}
+		&__request {
+			font-size: 16px;
+			margin: 0 0 25px 0;
+		}
+		&__data {
+			flex-direction: column;
+			margin-bottom: 20px;
+		}
+		&__tel,
+		&__name {
+			max-width: 100%;
+		}
+		&__tel {
+			margin-bottom: 15px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.callback {
+		&__title {
+			margin: 0 30px 15px 0;
+		}
+		&__request {
+			margin: 0 0 15px 0;
+		}
+		&__data {
+			margin-bottom: 15px;
+		}
+		&__content {
+			padding: 30px 25px 15px;
+			font-size: 16px;
+		}
+		&__confidencial-label {
+			padding-left: 45px;
+			font-size: 10px;
+			line-height: 15px;
+		}
+		&__button {
+			font-size: 24px;
+			height: 65px;
+		}
+	}
+}
+
+input.error {
+	border: 1px solid red;
+	color: red;
+	&::placeholder {
+		color: red;
+	}
+	&:hover {
+		color: red;
+		&::placeholder {
+			color: red;
+		}
+	}
+	&:focus {
+		border: 1px solid red;
+		color: red;
+	}
+}
+
+#username-error {
+	position: relative;
+	top: -15px;
+	text-transform: none;
+	color: red;
+	font-size: 12px;
+}
+
+// MODAL END
+
+@media (min-width: 768px) {
+	.decorates__wave-right {
+		display: inline;
+	}
+	.header {
+		&__buttons {
+			display: flex;
+			padding-top: 28px;
+		}
+		&__title {
+			font-size: 14px;
+			line-height: 21px;
+		}
+	}
+	.icon-logo {
+		max-width: 36px;
+		height: 112px;
+	}
+	.buttons__entry {
+		width: 32px;
+		height: 32px;
+		span {
+			display: none;
+		}
+	}
+	.buttons__cart {
+		margin-left: 16px;
+		width: 69px;
+		height: 32px;
+		margin-top: 0;
+		.btn__circle {
+			width: 19px;
+			height: 19px;
+			font-size: 10px;
+		}
+	}
+	.buttons__call {
+		display: block;
+	}
+	.menu__title {
+		font-size: 12px;
+	}
+	.header__bottom {
+		height: 43px;
+		&-inner {
+			height: 43px;
+		}
+	}
+	.buttons__bottom {
+		display: flex;
 	}
 }
 
