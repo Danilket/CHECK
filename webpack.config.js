@@ -94,6 +94,7 @@ const plugins = () => {
 	return base
 }
 
+
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
 	mode: 'development',
@@ -153,6 +154,9 @@ module.exports = {
 						pngquant: {
 							quality: [0.65, 0.90],
 							speed: 4
+						},
+						mozjpeg: {
+							progressive: true,
 						},
 					},
 				},

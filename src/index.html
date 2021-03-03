@@ -115,7 +115,7 @@
 									</div>
 								</a>
 							</div>
-							<button class="buttons__call" data-fancybox data-src="#modal">
+							<button class="buttons__call" data-fancybox data-src="#modal-callback">
 								обратный звонок
 							</button>
 						</div>
@@ -245,7 +245,7 @@
 							</a>
 						</li>
 					</ul>
-					<button class="buttons__call--menu" data-fancybox data-src="#modal">
+					<button class="buttons__call--menu" data-fancybox data-src="#modal-callback">
 						обратный звонок
 					</button>
 					<button class="info__language--mobile">
@@ -306,9 +306,9 @@
 
 
 	<section class="modal">
-		<div class="modal__callback callback" id="modal">
-			<h3 class="callback__title">Обратный звонок</h3>
-			<p class="callback__request">Оставьте заявку и мы свяжаемся с вами в течение 15 минут и ответим на все вопросы</p>
+		<div class="modal__callback callback" id="modal-callback">
+			<h3 class="callback__title title">Обратный звонок</h3>
+			<p class="callback__request request">Оставьте заявку и мы свяжаемся с вами в течение 15 минут и ответим на все вопросы</p>
 			<form class="callback__form" action="">
 				<div class="callback__data">
 					<div class="callback__tel">
@@ -325,8 +325,7 @@
 					<input class="callback__confidencial" id="confidencial" name="checkbox" type="checkbox">
 					<span class="callback__check">
 						<svg class="callback__svg" width="17" height="20">
-							<use xlink:href="#check-box">
-							</use>
+							<use xlink:href="#check-box"></use>
 						</svg>
 					</span>
 					Я соглашаюсь с поликой конфиденциальности данных и обработкой
@@ -334,9 +333,79 @@
 				<button class="callback__button" type="submit">Заказать звонок</button>
 			</form>
 		</div>
-		<div class="" id="modal2">123123123</div>
+
+		<div class="modal__thanks thanks" id="modal-thanks">
+			<h3 class="thanks__title title">Спасибо за Заявку!</h3>
+			<p class="thanks__request request">Оставьте заявку и мы свяжаемся с вами в течение 15 минут и ответим на все вопросы</p>
+			<picture class="thanks__picture">
+				<source srcset="<%=require('./assets/images/modal-thx.webp')%>" type="image/webp">
+				<img class="thanks__img" src="<%=require('./assets/images/modal-thx.png')%>" alt="">
+			</picture>
+		</div>
 	</section>
 
+	<section class="nature">
+		<div class="slider">
+			<div class="nature__item" data-bg="<%=require('./assets/images/bg-image.png')%>" data-bg-webp="<%=require('./assets/images/bg-image.webp')%>">
+				<div class="bg-container">
+					<div class="nature__bg-images">
+						<svg class="nature__wave">
+							<use xlink:href="#slider-wave"></use>
+						</svg>
+					</div>
+					<picture class="nature__picture">
+						<source srcset="<%=require('./assets/images/bg-bottle.webp')%>" type="image/webp">
+						<img class="nature__picture-img" src="<%=require('./assets/images/bg-bottle.png')%>" alt="">
+					</picture>
+				</div>
+				<div class="container nature__container">
+					<h2 class="nature__title">Энергия природы</h2>
+					<p class="nature__text">Хорошая вода улучшает вкус пищи и вина. Идеально сбалансированный минеральный состав воды SiENERGY подчеркивает и усиливает изысканный вкус блюд, позволяя насладиться каждым кусочком. Подается в красивых стеклянных бутылках, созданных для лучших ресторанов. Вода SiENERGY является членом Общества Fine Water Society.</p>
+				</div>
+				<div class="nature__gradient"></div>
+				<!-- <picture class="nature__picture">
+					<img class="nature__picture-img" src="<%=require('./assets/images/bg-bottle.png')%>" alt="">
+				</picture> -->
+			</div>
+			<div class="nature__item" data-bg="<%=require('./assets/images/bg-image.png')%>" data-bg-webp="<%=require('./assets/images/bg-image.webp')%>">
+				<div class="nature__bg-images">
+					<svg class="nature__wave">
+						<use xlink:href="#slider-wave"></use>
+					</svg>
+				</div>
+				<div class="container nature__container">
+					<h2 class="nature__title">Энергия природы</h2>
+					<p class="nature__text">Хорошая вода улучшает вкус пищи и вина. Идеально сбалансированный минеральный состав воды SiENERGY подчеркивает и усиливает изысканный вкус блюд, позволяя насладиться каждым кусочком. Подается в красивых стеклянных бутылках, созданных для лучших ресторанов. Вода SiENERGY является членом Общества Fine Water Society.</p>
+				</div>
+				<div class="nature__gradient"></div>
+
+			</div>
+			<div class="nature__item" data-bg="<%=require('./assets/images/bg-image.png')%>" data-bg-webp="<%=require('./assets/images/bg-image.webp')%>">
+				<div class="nature__bg-images">
+					<svg class="nature__wave">
+						<use xlink:href="#slider-wave"></use>
+					</svg>
+				</div>
+				<div class="container nature__container">
+					<h2 class="nature__title">Энергия природы</h2>
+					<p class="nature__text">Хорошая вода улучшает вкус пищи и вина. Идеально сбалансированный минеральный состав воды SiENERGY подчеркивает и усиливает изысканный вкус блюд, позволяя насладиться каждым кусочком. Подается в красивых стеклянных бутылках, созданных для лучших ресторанов. Вода SiENERGY является членом Общества Fine Water Society.</p>
+				</div>
+				<div class="nature__gradient"></div>
+			</div>
+
+		</div>
+		<div class="nature__dots">
+			<svg class="nature__dots-item">
+				<use xlink:href="#dot-static"></use>
+			</svg>
+			<svg class="nature__dots-item">
+				<use xlink:href="#dot-static"></use>
+			</svg>
+			<svg class="nature__dots-item">
+				<use xlink:href="#dot-static"></use>
+			</svg>
+		</div>
+	</section>
 
 </body>
 

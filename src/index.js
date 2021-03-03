@@ -22,6 +22,15 @@ import tel from '@/assets/images/tel.svg'
 import heart from '@/assets/images/heart.svg'
 import world from '@/assets/images/world.svg'
 import checkBox from '@/assets/images/check-box.svg'
+import modalThx from '@/assets/images/modal-thx.png'
+import modalThxWebp from '@/assets/images/modal-thx.webp'
+import bgImage from '@/assets/images/bg-image.png'
+import bgImageWebp from '@/assets/images/bg-image.webp'
+import dot from '@/assets/images/dot-static.svg'
+import dotActive from '@/assets/images/dot-active.svg'
+import sliderWave from '@/assets/images/slider-wave.svg'
+import bgBottle from '@/assets/images/bg-bottle.png'
+import bgBottleWebp from '@/assets/images/bg-bottle.webp'
 
 import './js/babel'
 import './js/modalFancybox'
@@ -31,6 +40,66 @@ import 'jquery-validation'
 
 import 'slick-slider'
 
+
+
+// window.onload = function () {
+// 	$('.slick-current').find('svg').addClass('dot-active')
+// 	$('.slick-current').find('use').attr('xlink:href', '#dot-active')
+// }
+
+$(function () {
+	$('.slider').slick({
+		// dots: true,
+		arrows: false,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		asNavFor: '.nature__dots',
+		fade: true,
+		// nextArrow: '<button type="button" class="slick-arrow slick-next"><img src="images/next-arrow.svg" alt="next-arrow"></button>',
+		// prevArrow: '<button type="button" class="slick-arrow slick-prev"><img src="images/prev-arrow.svg" alt="prev-arrow"></button>',
+		// responsive: [
+		// 	{
+		// 		breakpoint: 1024,
+		// 		settings: {
+
+		// 		}
+		// 	},
+		// 	{
+		// 		breakpoint: 640,
+		// 		settings: {
+		// 			arrows: false
+		// 		}
+		// 	},
+		// ]
+	});
+	$('.nature__dots').slick({ // настройка навигации
+		slidesToShow: 3, // указываем что нужно показывать 3 навигационных изображения
+		asNavFor: '.slider', // указываем что это навигация для блока выше
+		focusOnSelect: true // указываем что бы слайделось по клику
+	});
+	$('.slider').on('swipe', function () {
+		$('.nature__dots-item').removeClass('dot-active')
+		$('.nature__dots-item').find('use').attr('xlink:href', '#dot-static')
+		$('.slick-current').find('.nature__dots-item').addClass('dot-active')
+		$('.slick-current').find('.nature__dots-item').find('use').attr('xlink:href', '#dot-active')
+	});
+	$('.nature__dots-item').on('click', function () {
+		$('.nature__dots-item').removeClass('dot-active')
+		$('.nature__dots-item').find('use').attr('xlink:href', '#dot-static')
+		$(this).addClass('dot-active')
+		$(this).find('use').attr('xlink:href', '#dot-active')
+	});
+
+});
+
+
+
+// $('.nature__dots-item').on('click', function () {
+// 	$('.nature__dots-item').removeClass('dot-active')
+// 	$('.nature__dots-item').find('use').attr('xlink:href', '#dot-static')
+// 	$('.slick-current').find('svg').addClass('dot-active')
+// 	$('.slick-current').find('use').attr('xlink:href', '#dot-active')
+// })
 
 
 $('.info__language, .info__language--mobile').on('click', function () {
@@ -72,9 +141,9 @@ function burgerMenu(selector) {
 
 burgerMenu('.menu-mobile')
 
-$('.buttons__call2').on('click', function () {
-	$.fancybox.close();
-});
+// $('.buttons__call2').on('click', function () {
+// 	$.fancybox.close();
+// });
 
 $('[data-fancybox]').fancybox({
 	autoFocus: false,
@@ -131,6 +200,52 @@ $('.callback__form').validate({
 	},
 	submitHandler: function () {
 		$.fancybox.close();
-		$.fancybox.open($('#modal2'));
+		$.fancybox.open($('#modal-thanks'));
 	}
 })
+
+
+
+
+
+// Проверяем, можно ли использовать Webp формат
+function canUseWebp() {
+	// Создаем элемент canvas
+	let elem = document.createElement('canvas');
+	// Приводим элемент к булеву типу
+	if (!!(elem.getContext && elem.getContext('2d'))) {
+		// Создаем изображение в формате webp, возвращаем индекс искомого элемента и сразу же проверяем его
+		return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+	}
+	// Иначе Webp не используем
+	return false;
+}
+
+window.onload = function () {
+
+	$('.slick-current').find('.nature__dots-item').addClass('dot-active')
+	$('.slick-current').find('.nature__dots-item').find('use').attr('xlink:href', '#dot-active')
+	// Получаем все элементы с дата-атрибутом data-bg
+	let images = document.querySelectorAll('[data-bg]');
+	// Проходимся по каждому
+	for (let i = 0; i < images.length; i++) {
+		// Получаем значение каждого дата-атрибута
+		let image = images[i].getAttribute('data-bg');
+		// Каждому найденному элементу задаем свойство background-image с изображение формата jpg
+		images[i].style.backgroundImage = 'url(' + image + ')';
+	}
+
+	// Проверяем, является ли браузер посетителя сайта Firefox и получаем его версию
+	let isitFirefox = window.navigator.userAgent.match(/Firefox\/([0-9]+)\./);
+	let firefoxVer = isitFirefox ? parseInt(isitFirefox[1]) : 0;
+
+	// Если есть поддержка Webp или браузер Firefox версии больше или равно 65
+	if (canUseWebp() || firefoxVer >= 65) {
+		// Делаем все то же самое что и для jpg, но уже для изображений формата Webp
+		let imagesWebp = document.querySelectorAll('[data-bg-webp]');
+		for (let i = 0; i < imagesWebp.length; i++) {
+			let imageWebp = imagesWebp[i].getAttribute('data-bg-webp');
+			imagesWebp[i].style.backgroundImage = 'url(' + imageWebp + ')';
+		}
+	}
+};

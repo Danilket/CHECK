@@ -71,6 +71,20 @@ body {
 // 	display: none;
 // }
 
+.title {
+	font-size: 30px;
+	font-family: "Century Gothic-Bold";
+	letter-spacing: 3px;
+	// @media (max-width: 768px) {
+	// 	font-size: 24px;
+	// }
+}
+.request {
+	font-size: 18px;
+	text-transform: none;
+	line-height: 27px;
+}
+
 .menu__overlay {
 	display: none;
 	position: fixed;
@@ -89,6 +103,15 @@ body {
 	padding: 0 15px;
 	max-width: 1470px;
 	margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+	.title {
+		font-size: 24px;
+	}
+	.request {
+		font-size: 16px;
+	}
 }
 
 @media (min-width: 768px) {
