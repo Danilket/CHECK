@@ -15,9 +15,6 @@
 			<svg class="decorates__wave-left">
 				<use xlink:href="#wave"></use>
 			</svg>
-			<svg class="decorates__wave-leftgray">
-				<use xlink:href="#wave-gray"></use>
-			</svg>
 			<svg class="decorates__wave-right">
 				<use xlink:href="#wave"></use>
 			</svg>
@@ -33,9 +30,7 @@
 								</svg>
 							</a>
 							<h3 class="header__title">кремниевая родниковая вода «SiEnergy»</h3>
-
 						</div>
-
 						<div class="header__info-items info-items">
 							<div class="info-items__info info">
 								<button class="info__language">
@@ -97,7 +92,6 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="header__buttons buttons">
 							<div class="buttons__bottom">
 								<button class="buttons__entry btn">
@@ -172,14 +166,6 @@
 								контакты
 							</a>
 						</li>
-						<!-- <button class="menu__button--close">
-							<div class="menu__btn">
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-							<span class="menu__title">меню</span>
-						</button> -->
 					</ul>
 					<button class="menu__button">
 						<div class="menu__btn">
@@ -363,15 +349,18 @@
 					<p class="nature__text">Хорошая вода улучшает вкус пищи и вина. Идеально сбалансированный минеральный состав воды SiENERGY подчеркивает и усиливает изысканный вкус блюд, позволяя насладиться каждым кусочком. Подается в красивых стеклянных бутылках, созданных для лучших ресторанов. Вода SiENERGY является членом Общества Fine Water Society.</p>
 				</div>
 				<div class="nature__gradient"></div>
-				<!-- <picture class="nature__picture">
-					<img class="nature__picture-img" src="<%=require('./assets/images/bg-bottle.png')%>" alt="">
-				</picture> -->
 			</div>
 			<div class="nature__item" data-bg="<%=require('./assets/images/bg-image.png')%>" data-bg-webp="<%=require('./assets/images/bg-image.webp')%>">
-				<div class="nature__bg-images">
-					<svg class="nature__wave">
-						<use xlink:href="#slider-wave"></use>
-					</svg>
+				<div class="bg-container">
+					<div class="nature__bg-images">
+						<svg class="nature__wave">
+							<use xlink:href="#slider-wave"></use>
+						</svg>
+					</div>
+					<picture class="nature__picture">
+						<source srcset="<%=require('./assets/images/bg-bottle.webp')%>" type="image/webp">
+						<img class="nature__picture-img" src="<%=require('./assets/images/bg-bottle.png')%>" alt="">
+					</picture>
 				</div>
 				<div class="container nature__container">
 					<h2 class="nature__title">Энергия природы</h2>
@@ -381,10 +370,16 @@
 
 			</div>
 			<div class="nature__item" data-bg="<%=require('./assets/images/bg-image.png')%>" data-bg-webp="<%=require('./assets/images/bg-image.webp')%>">
-				<div class="nature__bg-images">
-					<svg class="nature__wave">
-						<use xlink:href="#slider-wave"></use>
-					</svg>
+				<div class="bg-container">
+					<div class="nature__bg-images">
+						<svg class="nature__wave">
+							<use xlink:href="#slider-wave"></use>
+						</svg>
+					</div>
+					<picture class="nature__picture">
+						<source srcset="<%=require('./assets/images/bg-bottle.webp')%>" type="image/webp">
+						<img class="nature__picture-img" src="<%=require('./assets/images/bg-bottle.png')%>" alt="">
+					</picture>
 				</div>
 				<div class="container nature__container">
 					<h2 class="nature__title">Энергия природы</h2>

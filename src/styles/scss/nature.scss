@@ -1,0 +1,159 @@
+.nature {
+	position: relative;
+	&__item {
+		min-height: 520px;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		position: relative;
+		display: flex !important;
+		align-items: center;
+		overflow: hidden;
+	}
+
+	&__bg-images {
+		display: none;
+	}
+	&__picture {
+		display: none;
+	}
+	&__container {
+		z-index: 1;
+	}
+	&__gradient {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 1) 100%);
+	}
+	&__container {
+		text-align: center;
+	}
+	&__title {
+		font-size: 36px;
+		color: $accent;
+		margin: 0 0 30px 0;
+		letter-spacing: 5.6px;
+		font-weight: 400;
+	}
+	&__text {
+		font-size: 14px;
+		text-transform: none;
+		line-height: 1.5;
+	}
+	&__dots {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 60px;
+		max-width: 70px;
+		margin: 0 auto;
+		:nth-child(2) {
+			margin: 0 15px;
+		}
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 37px;
+	}
+	&__dots-item {
+		cursor: pointer;
+		width: 12px !important;
+		height: 22px;
+		transition: $hover-delay;
+		&:hover {
+			fill: $menu-color;
+		}
+		&.dot-active {
+			height: 37px;
+			transition: $hover-delay;
+		}
+	}
+}
+
+.bg-container {
+	width: 1440px;
+	height: 520px;
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+
+.slick-track {
+	display: flex;
+	align-items: center;
+}
+
+@media (min-width: 768px) {
+	.nature {
+		&__item {
+			min-height: 450px;
+		}
+		&__container {
+			max-width: 670px;
+		}
+		&__title {
+			font-size: 48px;
+		}
+		&__text {
+			font-size: 16px;
+		}
+	}
+	.bg-container {
+		min-height: 450px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.nature {
+		&__item {
+			min-height: 500px;
+		}
+
+		&__bg-images {
+			left: -1310px;
+		}
+		&__wave {
+			width: 1743px;
+			height: 1328px;
+			position: relative;
+		}
+		&__container {
+			max-width: 710px;
+		}
+		&__title {
+			font-size: 56px;
+		}
+		&__text {
+			font-size: 18px;
+		}
+	}
+	.bg-container {
+		min-height: 500px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.nature {
+		&__bg-images {
+			display: block;
+			position: absolute;
+			z-index: 1;
+		}
+		&__picture {
+			display: block;
+			width: 100%;
+			position: absolute;
+		}
+		&__picture-img {
+			position: absolute;
+			right: 0;
+			top: -60px;
+			z-index: 1;
+		}
+	}
+}
